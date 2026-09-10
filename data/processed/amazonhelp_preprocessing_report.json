@@ -1,0 +1,28 @@
+{
+  "source": "data\\raw\\twcs\\twcs.csv",
+  "brand": "AmazonHelp",
+  "selection_method": "lowest canonical customer-root tweet_ids with a direct AmazonHelp reply",
+  "raw_rows_indexed": 2811774,
+  "amazonhelp_outbound_messages": 169840,
+  "amazonhelp_related_customer_root_components_found": 76799,
+  "components_selected": 10000,
+  "components_rejected": 66799,
+  "rejection_reasons": {
+    "target_cap_after_deterministic_ordering": 66799
+  },
+  "selected_component_messages": 49315,
+  "average_messages_per_selected_conversation": 4.9315,
+  "minimum_messages": 2,
+  "maximum_messages": 139,
+  "customer_messages": 26466,
+  "brand_messages": 22849,
+  "time_range": {
+    "start": "2015-07-17T13:53:02+00:00",
+    "end": "2017-12-03T22:30:27+00:00"
+  },
+  "remaining_dangling_relationships": {
+    "canonical_parent_tokens_outside_selected_component": 0,
+    "distinct_response_targets_missing_from_source": 387,
+    "response_reference_tokens_missing_from_source": 387
+  }
+}

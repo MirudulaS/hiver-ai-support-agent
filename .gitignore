@@ -1,0 +1,31 @@
+# Python
+venv/
+.venv/
+env/
+__pycache__/
+*.py[cod]
+
+# Secrets
+.env
+.env.*
+!.env.example
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Raw Kaggle dataset
+data/raw/
+
+# Generated processed data
+data/processed/*messages.csv
+data/processed/*weak_labels.csv
+data/processed/*conversations.csv
+data/processed/classifier_test_predictions.csv
+
+# Temporary files
+*.tmp
+*.log
+.ipynb_checkpoints/
