@@ -1,0 +1,4 @@
+system,accuracy,macro_f1
+Majority baseline,0.195,0.0296690756941803
+Weak-label rules,0.61,0.5890748548331943
+TF-IDF + Logistic Regression,0.59,0.5588817083987728

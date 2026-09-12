@@ -1,0 +1,243 @@
+tweet_id,conversation_id,created_at,text,weak_intent,weak_label_confidence,human_intent,human_notes,is_ambiguous,needs_context
+105047,amazonhelp_105047,2017-11-30 18:07:04+00:00,Good to know that paying for Amazon Prime doesn’t mean shit when paying $200. It’s been a week since I ordered and no one can tell me where my package is. Maybe they should stop using UPS because I’ve never not had problems with them. #amazonprime #whataloadofshit,DELIVERY_DELAY,medium,DELIVERY_DELAY,,False,False
+109900,amazonhelp_109900,2017-11-23 18:13:46+00:00,Est ce que quelqu'un sait si le black friday @120533 a déjà commencé ou si ca commence vraiment demain ? #BlackFriday,CONTEXT_NEEDED,low,CONTEXT_NEEDED,,False,False
+110017,amazonhelp_110017,2017-11-23 19:41:55+00:00,@115850 @AmazonHelp Want to urge you to enable Kannada fonts &amp; language and publishing of Kannada ebooks on all kindle versions !,DIGITAL_TECHNICAL,medium,DIGITAL_TECHNICAL,,False,False
+111898,amazonhelp_111898,2017-11-23 20:17:46+00:00,I pay for @115830 Prime Why is the one day delivery telling me it will be 5 days?,DELIVERY_DELAY,medium,DELIVERY_DELAY,,False,False
+111926,amazonhelp_111926,2017-11-23 20:17:52+00:00,"- Mit Hawaiihemd auf iPad Amazon Fresh bestellen
+- füße auf Schreibtisch, wippend https://t.co/eR2xsSTN3v
+- ""sexy Beach-Traum""
+- DingDong",CONTEXT_NEEDED,low,CONTEXT_NEEDED,,False,False
+111966,amazonhelp_111966,2017-11-23 18:37:22+00:00,And once again @115830 fails to fulfil “guaranteed”  delivery dates and “next day delivery” Questioning the point of prime now!,DELIVERY_DELAY,medium,DELIVERY_DELAY,,False,False
+118828,amazonhelp_118828,2017-11-23 22:16:51+00:00,Why does @116090  even bother offering two day shipping when they send it regular mail via @132668 .  It never arrives in that time frame.,DELIVERY_DELAY,medium,DELIVERY_DELAY,,False,False
+121089,amazonhelp_121089,2017-11-23 23:18:49+00:00,Hi @116316 it's been 5 days now since I placed my order and still hasn't been dispatched. The product went in and out of stock couple of times and your support is of no help unfortunately. Care to assist?,PRODUCT_SELLER_ISSUE,high,ORDER_MANAGEMENT,,False,False
+121987,amazonhelp_121987,2017-11-23 23:56:25+00:00,@AmazonHelp Dommage que vous ne les vendez que par pack de 4 :/ https://t.co/WYSJiuWo2N #Amazon,CONTEXT_NEEDED,low,CONTEXT_NEEDED,,False,False
+122786,amazonhelp_122786,2017-11-24 00:14:09+00:00,"Já fiz minhas compras hoje, alguém tira o site da @117086 da minha internet!",CONTEXT_NEEDED,low,CONTEXT_NEEDED,,False,False
+123376,amazonhelp_123376,2017-11-24 01:00:30+00:00,oi @117086 será que rola um descontão nos livros de história da matemática da @6975  nessa Black Friday? s2,CONTEXT_NEEDED,low,CONTEXT_NEEDED,,False,False
+123993,amazonhelp_123993,2017-11-24 01:38:49+00:00,"@116875 hice mi pedido el lunes, es con entrega de día siguiente, pero hasta ahorita es hora que no llega y lo necesito para mañana viernes!!! Llamo y solo me dicen que ya está en ruta para entrega, hagan algo por favor!!! 😠",CONTEXT_NEEDED,low,DELIVERY_DELAY,,False,False
+124104,amazonhelp_124104,2017-11-24 01:07:08+00:00,@117086 oi anazon há uns três meses comprei uns livros físicos de vcs agora comprei um kindler qro saber se terei acesso a eles como ebook ou tem q comprar d novo?,CONTEXT_NEEDED,low,DIGITAL_TECHNICAL,,False,False
+133916,amazonhelp_133916,2017-11-24 08:10:35+00:00,Merci beaucoup @2600 pour m'avoir bloqué mon compte sans mon accord juste parce que j'ai passé une commande d'un autre ordinateur... Un peu d'aide please @AmazonHelp ?,CONTEXT_NEEDED,low,ACCOUNT_ACCESS_SECURITY,,False,False
+134816,amazonhelp_134816,2017-11-18 16:32:30+00:00,@AmazonHelp Do you think it’s appropriate for your delivery men to leave these items at a door when no one is home free for anyone to take! Total disgrace and terrible service. https://t.co/UoSIx11lZp,DELIVERY_DELAY,medium,DELIVERY_PROOF_FAILURE,,False,False
+134840,amazonhelp_134840,2017-11-21 18:44:17+00:00,Bereitet sich @116316 auf die Weihnachtszeit vor? https://t.co/Goj9Ur2Zgl,CONTEXT_NEEDED,low,CONTEXT_NEEDED,,False,False
+136873,amazonhelp_136873,2017-11-24 09:54:06+00:00,@115830 5 failed deliveries for a simple order. Have called call centre 5 times with instructions but these do not get passed on. Please get someone from UK call centre to ring me today if not will cancel my account.,ORDER_MANAGEMENT,high,SUPPORT_ESCALATION,,False,False
+136886,amazonhelp_136886,2017-11-24 09:49:49+00:00,"@AmazonHelp @115830 Hello, I have not received a delivery even though it states it has been delivered! Please help!",DELIVERY_DELAY,medium,DELIVERY_PROOF_FAILURE,,False,False
+137096,amazonhelp_137096,2017-11-24 09:33:54+00:00,@115850 haven't got my refund for order ending 1510 @146917 called customer care but of no use refund pending 15 days + . @118702 kudos to ur service,RETURN_REFUND_REPLACEMENT,high,RETURN_REFUND_REPLACEMENT,,False,False
+138224,amazonhelp_138224,2017-11-24 10:14:16+00:00,"Asper my return pickup reqst,tday a delivery boy had come,named sukanta chakraborty,Howrah,no 8777725180.He misbehaved n threatened me.Also Pretended like he was d customer n i was d service provider.Very upset.lodged a complaint.Hope @115850  ll take proper action agst him.",RETURN_REFUND_REPLACEMENT,high,RETURN_REFUND_REPLACEMENT,,False,False
+138276,amazonhelp_138276,2017-11-21 18:18:58+00:00,Hi @115850 a wrong order was delivered today. Can you please help?,CONTEXT_NEEDED,low,PRODUCT_SELLER_ISSUE,,False,False
+138901,amazonhelp_138901,2017-11-24 11:09:43+00:00,@115850 damn my phone order got cancelled. Why can’t I book 2 phones?,ORDER_MANAGEMENT,high,ORDER_MANAGEMENT,,False,False
+138989,amazonhelp_138989,2017-11-24 10:53:53+00:00,"Puis déposer le #colis en point relais alors qu'on paye une prestation @120533  prime pour être livrer à domicile @4238 ... Si votre livreur n'aime pas livrer, qu'il change de #job.",PRIME_MEMBERSHIP,medium,PRIME_MEMBERSHIP,,False,False
+140966,amazonhelp_140966,2017-11-24 11:44:59+00:00,@147807 What is the point of a next day Amazon Business Prime account if the courier service has up until 8pm to deliver the package? It's hardly next business day at 8pm unless you work night shifts.,DELIVERY_DELAY,medium,DELIVERY_DELAY,,False,False
+141116,amazonhelp_141116,2017-11-24 11:34:21+00:00,Guys can i get a response. @115850  @AmazonHelp it more than 24 hrs. yet waiting for your mail.,CONTEXT_NEEDED,low,SUPPORT_ESCALATION,,False,False
+142106,amazonhelp_142106,2017-11-24 12:15:56+00:00,AmazonでTVガイドコンビニ決済で頼んだけど、これって出荷準備された時に支払い番号くるんだっけ､､､Amazon久しぶりすぎて記憶が､､､､､､😂😂 https://t.co/uRyU4JHMa8,CONTEXT_NEEDED,low,PAYMENT_BILLING_GIFTCARD,,False,False
+144070,amazonhelp_144070,2017-11-24 13:18:29+00:00,Well so far Amazon have managed to ship 3 separate packages from 3 different sellers to France and lost them. I live in Northeast England. And a 4th package was late. Grrr,DELIVERY_DELAY,medium,DELIVERY_PROOF_FAILURE,,False,False
+145704,amazonhelp_145704,2017-11-24 14:05:15+00:00,"Was going to order a few things off @115830 until I see there that their so called next day prime delivery, won’t be delivered until Tuesday. Think I’ll give it a miss. #ripoff https://t.co/n1CaqH2RMl",DELIVERY_DELAY,medium,DELIVERY_DELAY,,False,False
+145735,amazonhelp_145735,2017-11-24 14:01:01+00:00,Not impressed at all with @115821 customer service. Still Waiting to be refunded for an item not received! Also waiting a refund on Amazon prime charges which I have previously have discussed with someone and still waiting for the problem to be resolved,RETURN_REFUND_REPLACEMENT,high,RETURN_REFUND_REPLACEMENT,,False,False
+147366,amazonhelp_147366,2017-11-24 14:06:33+00:00,"Dear @115821, I believe you now have all my money set aside for buying anything. Congrats. #fb",CONTEXT_NEEDED,low,CONTEXT_NEEDED,,False,False
+152080,amazonhelp_152080,2017-11-24 15:59:24+00:00,@AmazonHelp everything I'm wanting to order on one day delivery won't be delivered until Monday. Why?,DELIVERY_DELAY,medium,DELIVERY_DELAY,,False,False
+152083,amazonhelp_152083,2017-11-24 15:31:24+00:00,.@119625 could you please deal with your ego issues &amp; put a chromecast button on your app? You’re just spoiling the user experience &amp; losing people.,CONTEXT_NEEDED,low,DIGITAL_TECHNICAL,,False,False
+153673,amazonhelp_153673,2017-11-24 16:29:03+00:00,@115821 How is the Treasure Truck sold out before the first stop? https://t.co/R6LGCPK4yL,CONTEXT_NEEDED,low,ORDER_MANAGEMENT,,False,False
+153709,amazonhelp_153709,2017-11-24 15:59:38+00:00,@AmazonHelp Help! All my content has disappeared from my account - it says 'no items found' and I should have several hundred books and samples in there (833 items according to my Kindle). Everything seems OK with my Kindle and all my books etc are still in my library.,DIGITAL_TECHNICAL,medium,DIGITAL_TECHNICAL,,False,False
+153730,amazonhelp_153730,2017-11-24 16:04:43+00:00,@117086 e sua capacidade de fazer a gnt comprar o app todo 😂😂😂,CONTEXT_NEEDED,low,CONTEXT_NEEDED,,False,False
+155157,amazonhelp_155157,2017-11-24 16:30:02+00:00,@1384 worst quality products delivered from @9104 Malad,PRODUCT_SELLER_ISSUE,high,PRODUCT_SELLER_ISSUE,,False,False
+155267,amazonhelp_155267,2017-11-24 16:27:02+00:00,@AmazonHelp wen is next Flash Sale of Oneplus5T ???,CONTEXT_NEEDED,low,CONTEXT_NEEDED,,False,False
+156668,amazonhelp_156668,2017-11-24 17:10:57+00:00,"&lt;1/3&gt; Utterly disappointed with @115850 in regards with order id 408-4908747-4045964, order 402-7298089-1482743. I'm paying money for the product with a hope that it'll be delivered on time, not once but twice you let yourself down.",DELIVERY_PROOF_FAILURE,high,DELIVERY_DELAY,,False,False
+158742,amazonhelp_158742,2017-11-24 17:49:31+00:00,@115850 @AmazonHelp how to use the offer of 80% discount on ebook? Have purchased ₹9798 offer... https://t.co/jXOQLKqmOJ,CONTEXT_NEEDED,low,PAYMENT_BILLING_GIFTCARD,,False,False
+163569,amazonhelp_163569,2017-11-24 19:32:11+00:00,"@AmazonHelp: I purchased a pair of shoes that I'd like to exchange, but I have a question regarding the exchange policy.",RETURN_REFUND_REPLACEMENT,high,RETURN_REFUND_REPLACEMENT,,False,False
+166379,amazonhelp_166379,2017-11-24 20:10:55+00:00,@116875 hola que pasa si en un artículo no me sale la opción de comprar ???? https://t.co/gsNVgiS4G8,CONTEXT_NEEDED,low,ORDER_MANAGEMENT,,False,False
+16895,amazonhelp_16895,2017-11-01 03:52:04+00:00,アマゾンのプライム会員勝手に継続されてるんですけど,CONTEXT_NEEDED,low,PRIME_MEMBERSHIP,,False,False
+170946,amazonhelp_170946,2017-11-17 08:45:02+00:00,@116928 @AmazonHelp @4496  Otro paquete más con destino a Canarias que se devuelve por no adjuntar factura y ahora sin stock...espero que lo solucionen ya y más en estas fechas,CONTEXT_NEEDED,low,ORDER_MANAGEMENT,,False,False
+170956,amazonhelp_170956,2017-11-24 21:55:28+00:00,"Every time I order from @115821 I get an Amazon box.  The one day my boyfriend answers the door for a delivery he sees his @155870 Christmas gift a month early, because they decided to send it over in the manufacturer's box only. Surprise ruined :(",DELIVERY_DELAY,medium,PRODUCT_SELLER_ISSUE,,False,False
+172327,amazonhelp_172327,2017-11-24 22:07:28+00:00,@115833 can I set up a second phone on our amazon echo dot?,DIGITAL_TECHNICAL,medium,DIGITAL_TECHNICAL,,False,False
+175416,amazonhelp_175416,2017-11-24 23:43:47+00:00,Paid for next day delivery and didn’t get my package? @AmazonHelp,DELIVERY_PROOF_FAILURE,high,DELIVERY_PROOF_FAILURE,,False,False
+177350,amazonhelp_177350,2017-11-25 00:45:09+00:00,I just tried out @115821 restaurants and it is hands down way better than @115877. I am deleting uber eats from my phone as of this writing! Another W for amazon!,CONTEXT_NEEDED,low,CONTEXT_NEEDED,,False,False
+180099,amazonhelp_180099,2017-10-04 11:04:30+00:00,@115850 #AmazonGreatIndianFestival is a chuttiappa? U guys delivered me an empty pckg of Mi4i Tempered glass. Really pathetic service. https://t.co/ZI286FMIDm,CONTEXT_NEEDED,low,DELIVERY_PROOF_FAILURE,,False,False
+180104,amazonhelp_180104,2017-10-04 10:58:17+00:00,You'll help me? Your customer care exec won't. Whom should I trust? Trust? What am i even getting into? Phew @115850 https://t.co/SEbK16lTLG,SUPPORT_ESCALATION,medium,SUPPORT_ESCALATION,,False,False
+180870,amazonhelp_180870,2017-10-04 12:42:41+00:00,"@AmazonHelp No code for preordering Star Wars Battlefront II physically, and now I can’t use my Amazon store card to buy it digitally? Why??",CONTEXT_NEEDED,low,PAYMENT_BILLING_GIFTCARD,,False,False
+181283,amazonhelp_181283,2017-11-25 00:31:28+00:00,Our @115821 Dot was delivered today...and thanks to shoddy mailbox keys (the package key they left in our box does NOT work) it's going to sit in below freezing temps in the box until probably Monday when @118706 gets back into their office. Hope it survives....@123967 ideas?,DELIVERY_PROOF_FAILURE,high,DELIVERY_PROOF_FAILURE,,False,False
+183370,amazonhelp_183370,2017-10-04 10:30:50+00:00,Amazonプライムで鎧武見れるようになってテンションあがった！（笑）,CONTEXT_NEEDED,low,PRIME_MEMBERSHIP,,False,False
+183584,amazonhelp_183584,2017-10-04 12:02:21+00:00,こ、コウノドリがAmazonプライムビデオでみれる〜〜〜😭😭😭😭これで眼鏡星野源見放題やんけ😭😭😭😭😭,CONTEXT_NEEDED,low,PRIME_MEMBERSHIP,,False,False
+183616,amazonhelp_183616,2017-10-04 11:48:07+00:00,@115830 been charged for prime wrongly and can’t find how to request a refund... can you help? Thanks,PAYMENT_BILLING_GIFTCARD,high,PAYMENT_BILLING_GIFTCARD,,False,False
+183660,amazonhelp_183660,2017-10-04 12:42:01+00:00,"@115850 Goofup with product delivery to wrong address Order#408-6362281-0698719. Support have done nothing, despite two escalations. 😟😔😕",DELIVERY_DELAY,medium,SUPPORT_ESCALATION,,False,False
+191666,amazonhelp_191666,2017-10-04 15:01:36+00:00,😱 😱 😱 @116875 @12548 https://t.co/ALHmKkgOEq,CONTEXT_NEEDED,low,CONTEXT_NEEDED,,False,False
+191806,amazonhelp_191806,2017-10-04 15:09:13+00:00,Delivery date changed to 19th October!  What is going on @115821!? #justiceforLB https://t.co/lGcEvFubIY,DELIVERY_DELAY,medium,DELIVERY_DELAY,,False,False
+193073,amazonhelp_193073,2017-10-04 20:04:30+00:00,@115851 m sorry2disturbed u but m mentally harassed by Amazon 405-6636472-3798710 not working booked another order but not getting refund,RETURN_REFUND_REPLACEMENT,high,RETURN_REFUND_REPLACEMENT,,False,False
+19462,amazonhelp_19462,2017-11-01 06:32:04+00:00,@AmazonHelp 6 order: 113-2039762-2382613、113-2511164-7606668、113-7544238-7484225、114-5454499-3702646、114-9012608-0575407、114-9109336-9221053,CONTEXT_NEEDED,low,CONTEXT_NEEDED,,False,False
+197717,amazonhelp_197717,2017-10-04 14:09:54+00:00,"@AmazonHelp @115850 
+
+Wrongly delivered. Please deliver it to correct id https://t.co/Dy1v5v1kpR",DELIVERY_DELAY,medium,DELIVERY_PROOF_FAILURE,,False,False
+200020,amazonhelp_200020,2017-10-04 19:39:39+00:00,@AmazonHelp I haven’t receive my early access code for Battlefront and I called and basically said they can’t help me? I ordered in April,SUPPORT_ESCALATION,medium,SUPPORT_ESCALATION,,False,False
+20024,amazonhelp_20024,2017-11-01 06:50:46+00:00,@115850  order no. 408-9844239-0335528 bed side table is not delivered till now.,CONTEXT_NEEDED,low,DELIVERY_DELAY,,False,False
+206146,amazonhelp_206146,2017-11-06 12:31:20+00:00,When @116090 ships your @115786 one x 120 hours ago and there's been no update to tracking at all. Feeling pretty uncomfortable.  #prime,ORDER_MANAGEMENT,high,DELIVERY_DELAY,,False,False
+206211,amazonhelp_206211,2017-11-06 08:54:43+00:00,"Preordered this the second it was announced, and @115821 screw me in the final few days 😩 @117331 @116543 @115787 @115788 https://t.co/BCSHQUPUow",CONTEXT_NEEDED,low,ORDER_MANAGEMENT,,False,False
+206831,amazonhelp_206831,2017-10-04 21:37:43+00:00,@AmazonHelp why are you guys taking so long to charge my card?,PAYMENT_BILLING_GIFTCARD,high,PAYMENT_BILLING_GIFTCARD,,False,False
+206839,amazonhelp_206839,2017-10-04 21:34:58+00:00,"What's happened the Garmin Vivoactive 3 in the UK? Had it pre-ordered at @115830 for delivery tomorrow, and now suddenly showing as 25th??",DELIVERY_DELAY,medium,DELIVERY_DELAY,,False,False
+210376,amazonhelp_210376,2017-10-04 18:40:06+00:00,@AmazonHelp Remember when your customer service used to be good?,SUPPORT_ESCALATION,medium,SUPPORT_ESCALATION,,False,False
+215212,amazonhelp_215212,2017-10-05 00:44:16+00:00,amazon keeps messing up my her order i got one email saying it was cancelled but when i go on the website it says its gonna be shipped i,ORDER_MANAGEMENT,high,ORDER_MANAGEMENT,,False,False
+222693,amazonhelp_222693,2017-10-05 03:35:17+00:00,"@115850 
+#flipcart is better than you. U need to work on customer care front, morons are sitting at customer care, lack of efficiency",SUPPORT_ESCALATION,medium,SUPPORT_ESCALATION,,False,False
+222809,amazonhelp_222809,2017-10-05 03:13:11+00:00,"@115833 If I can play music across all Echo devices in the house, why can't I check status of timer set on another device? Work on that.",DIGITAL_TECHNICAL,medium,DIGITAL_TECHNICAL,,False,False
+224003,amazonhelp_224003,2017-11-16 17:43:23+00:00,@AmazonHelp  esperando por un pedido más de 1 semana xq @99299  son unos sinvergüenzas y no lo entregan cuando les digo q estoy en casa,CONTEXT_NEEDED,low,DELIVERY_DELAY,,False,False
+224336,amazonhelp_224336,2017-10-05 04:51:15+00:00,@115821 @AmazonHelp Can I cancel a preorder of a digital video game? It has not released yet.,ORDER_MANAGEMENT,high,ORDER_MANAGEMENT,,False,False
+224993,amazonhelp_224993,2017-10-05 05:25:08+00:00,"@147807 Hi, I wanted a One plus 5 mobile, but none of your vendors are offering a GST invoice on that. How can I proceed?",CONTEXT_NEEDED,low,PAYMENT_BILLING_GIFTCARD,,False,False
+226149,amazonhelp_226149,2017-10-05 06:36:17+00:00,@169994 will you come back to NYC :(?,CONTEXT_NEEDED,low,CONTEXT_NEEDED,,False,False
+226423,amazonhelp_226423,2017-10-05 06:51:03+00:00,@115830 android Alexa app says new version with calling available but play store installs old version?,DIGITAL_TECHNICAL,medium,DIGITAL_TECHNICAL,,False,False
+226658,amazonhelp_226658,2017-10-04 13:33:22+00:00,"@115850 @AmazonHelp warranty by manufacturer, but no contact details of manufacturer! RUBBISH   Amazon deals for Chor companies https://t.co/0T2yb35KGz",SUPPORT_ESCALATION,medium,SUPPORT_ESCALATION,,False,False
+227114,amazonhelp_227114,2017-10-05 07:25:24+00:00,"@115850  Slow clap 👏👏👏👏
+
+Product Cancelled by me, still getting notification that product will deliver to you today. Apni Dukaan.😂🤣😂🤣 https://t.co/RrWAFMmpbL",DELIVERY_DELAY,medium,ORDER_MANAGEMENT,,False,False
+229089,amazonhelp_229089,2017-10-05 08:06:09+00:00,"@AmazonHelp To buy an Infocus Smartphone, cannot exchange with another @11797 smartphone",RETURN_REFUND_REPLACEMENT,high,RETURN_REFUND_REPLACEMENT,,False,False
+229838,amazonhelp_229838,2017-10-05 08:16:08+00:00,"@115850 Surprised... Without my consent,  no information,  package returned. Even customer care dnt have any clue.  What's this???",DELIVERY_DELAY,medium,ORDER_MANAGEMENT,,False,False
+230865,amazonhelp_230865,2017-10-05 09:06:11+00:00,Is this kind of too much for a delivery. This is the 6th notification on same order @115850 https://t.co/y3gY1ytgCX,DELIVERY_DELAY,medium,DELIVERY_DELAY,,False,False
+231533,amazonhelp_231533,2017-10-05 08:51:15+00:00,うーん、ブラウザから見てるんだけどPrime ReadingとKindle Unlimitedの区別がつかない…読もうと思うとKindle Unlimitedの10冊の中に入れられちゃうんだよねぇ…どこかにPrime用ボタンとかあるのかな？？？,CONTEXT_NEEDED,low,DIGITAL_TECHNICAL,,False,False
+232823,amazonhelp_232823,2017-10-05 11:48:47+00:00,Amazonさん！！！！？,CONTEXT_NEEDED,low,CONTEXT_NEEDED,,False,False
+232847,amazonhelp_232847,2017-10-05 11:41:47+00:00,"Contacted close to 15 agents but no resolved issue,40k blocked been 2 months no refund no support @AmazonHelp @115850 @115851",RETURN_REFUND_REPLACEMENT,high,CONTEXT_NEEDED,,False,False
+233482,amazonhelp_233482,2017-10-05 11:49:27+00:00,@AmazonHelp I Was in Payment Page in Net Banking entered Login Details but The Page didn't Load up,ACCOUNT_ACCESS_SECURITY,high,ACCOUNT_ACCESS_SECURITY,,False,False
+234134,amazonhelp_234134,2017-10-05 12:35:57+00:00,"Picked up an @115830 delivery with an item missing in the box. This is... new. 
+
+I don't even know how to notify them of that.",DELIVERY_PROOF_FAILURE,high,DELIVERY_PROOF_FAILURE,,False,False
+234536,amazonhelp_234536,2017-10-05 13:00:03+00:00,@115850 I am actually waiting for this at home! https://t.co/HIhpTvCRlh,CONTEXT_NEEDED,low,CONTEXT_NEEDED,,False,False
+234853,amazonhelp_234853,2017-10-05 13:11:56+00:00,Olá @117086 estou tendo dificuldade pra cadastrar meu endereço. A minha cidade ganhou novos CEPs e o sistema não tá aceitando. https://t.co/FZI0taaDDM,CONTEXT_NEEDED,low,ACCOUNT_ACCESS_SECURITY,,False,False
+235183,amazonhelp_235183,2017-10-05 13:16:06+00:00,@12026 chimney bought from @115850 on September 1st no installation or any visit by engineer @AmazonHelp https://t.co/LTXSJ2ZK9T,CONTEXT_NEEDED,low,PRODUCT_SELLER_ISSUE,,False,False
+238580,amazonhelp_238580,2017-10-04 13:16:41+00:00,@116928 Por 2a vez me cerraron la cuenta. Tras cambiar la contraseña no me deja entrar. La verdad que me tienen un poco desesperado.,CONTEXT_NEEDED,low,ACCOUNT_ACCESS_SECURITY,,False,False
+238625,amazonhelp_238625,2017-10-04 08:35:07+00:00,"@116316 würde gerne die neuen Funktionen von #Echo test. Aber die App will nicht :(
+Bin ich alleine mit dem Problem? https://t.co/Be9yChpgZ1",DIGITAL_TECHNICAL,medium,DIGITAL_TECHNICAL,,False,False
+238783,amazonhelp_238783,2017-10-03 14:06:17+00:00,"@2600 so it appears I am supposed to use Amazon.fr because I live in Belgium? How can I change the language, like on Amazon.de, pls?",CONTEXT_NEEDED,low,ACCOUNT_ACCESS_SECURITY,,False,False
+239499,amazonhelp_239499,2017-11-25 02:22:49+00:00,"@116313 
+アマゾン使った事がないんですが、どうしたらいいですか？ https://t.co/c14bmdNePK",CONTEXT_NEEDED,low,CONTEXT_NEEDED,,False,False
+245898,amazonhelp_245898,2017-10-05 15:21:22+00:00,Y yo que creía que comprar por @AmazonHelp era sencillo ☹️,CONTEXT_NEEDED,low,CONTEXT_NEEDED,,False,False
+246435,amazonhelp_246435,2017-10-05 15:29:14+00:00,"@AmazonHelp 1970s delivery service from amazon! 
+*Can’t give time of delivery.
+*Cant change to a new delivery address. 
+Utter crap!",DELIVERY_DELAY,medium,ORDER_MANAGEMENT,,False,False
+246987,amazonhelp_246987,2017-10-05 15:16:37+00:00,I purchased 10.or mobile at Amazon india. It's poor quality. They are not refunding citing policies. Please help @115851 https://t.co/LUf73Cu0lr,PRODUCT_SELLER_ISSUE,high,RETURN_REFUND_REPLACEMENT,,False,False
+248696,amazonhelp_248696,2017-10-05 16:17:51+00:00,"@115850 
+When my product Return and Refund me.
+Last 10 day I'm waiting ur person come to defect product collect.
+Why delay this ?Shameless",RETURN_REFUND_REPLACEMENT,high,RETURN_REFUND_REPLACEMENT,,False,False
+24965,amazonhelp_24965,2017-11-01 09:33:21+00:00,"Finally got it 
+Thank you @115850 @120543 for fastest delivery :') https://t.co/767ixQnlWL",DELIVERY_DELAY,medium,CONTEXT_NEEDED,,False,False
+25276,amazonhelp_25276,2017-11-03 16:44:36+00:00,"｢猫はAmazonの箱が好き｣という話を聞いて、我が家でも届いた箱を放置してみたら、やはり入って寛いでた…w
+今度毛布敷くね(´ｰ｀) https://t.co/PaFgEda2Xn",CONTEXT_NEEDED,low,CONTEXT_NEEDED,,False,False
+252847,amazonhelp_252847,2017-10-05 17:16:40+00:00,"Dear @115850  , worst delivery system. After paying 100 rs more for Prime too, Couldn't receive my order in the given time.",DELIVERY_DELAY,medium,DELIVERY_DELAY,,False,False
+259919,amazonhelp_259919,2017-10-05 20:47:02+00:00,#JCPenny #Dickies #Amazon  Ordered clothes from all 3 same day about  4 weeks ago #Pennies 2 Days #Dickies 4 #Amazon still hasn't come yet,CONTEXT_NEEDED,low,DELIVERY_DELAY,,False,False
+260805,amazonhelp_260805,2017-10-05 21:20:26+00:00,For 2nd time in a week @115830 Prime have failed to deliver my order on the next day as promised.Awaiting email reply after complaining.,DELIVERY_DELAY,medium,DELIVERY_DELAY,,False,False
+262178,amazonhelp_262178,2017-10-05 21:55:24+00:00,@AmazonHelp @115821 Please teach delivery people #1 Not drop or throw packages #2 walk a few more feet. AMZL TBA473944365000 #everytime https://t.co/KzhdmNwwOj,DELIVERY_PROOF_FAILURE,high,DELIVERY_PROOF_FAILURE,,False,False
+268678,amazonhelp_268678,2017-10-06 00:40:27+00:00,@116618 if I have prime why can’t I watch #TNFonPrimeVideo,PRIME_MEMBERSHIP,medium,PRIME_MEMBERSHIP,,False,False
+26907,amazonhelp_26907,2017-11-01 09:45:14+00:00,@AmazonHelp Hi I am not happy at all NO response from @115830 this is not acceptable it’s Racism which I wouldn’t expect from Amazon...... https://t.co/jjAJS8njHt,SUPPORT_ESCALATION,medium,SUPPORT_ESCALATION,,False,False
+269145,amazonhelp_269145,2017-10-06 00:49:49+00:00,"Amazonの神対応に感動した。
+
+#Amazon",CONTEXT_NEEDED,low,CONTEXT_NEEDED,,False,False
+270280,amazonhelp_270280,2017-10-06 01:50:35+00:00,"Why do I even pay for @115821 if over 50% of my packages don't arrive by the ""guarantee"" date?",CONTEXT_NEEDED,low,PRIME_MEMBERSHIP,,False,False
+271956,amazonhelp_271956,2017-10-06 02:43:51+00:00,So- @115821 - your ppl keep sending me little stuff in big boxes with a token piece of packaging. #TrainingNeeded https://t.co/Z2KJymzPyN,CONTEXT_NEEDED,low,PRODUCT_SELLER_ISSUE,,False,False
+272181,amazonhelp_272181,2017-10-06 03:00:43+00:00,@115821 @AmazonHelp Website says I received package on 10/2...I haven’t received it. Help! What do I do?,DELIVERY_DELAY,medium,DELIVERY_PROOF_FAILURE,,False,False
+272447,amazonhelp_272447,2017-10-06 03:31:12+00:00,"アマゾンで息子さんの帽子買ったんだけどデカかったwww
+折らないとかぶれないwww
+チャオズみたい… https://t.co/2Q7rWD7lRA",CONTEXT_NEEDED,low,PRODUCT_SELLER_ISSUE,,False,False
+273622,amazonhelp_273622,2017-10-06 03:52:54+00:00,@13889 I own an LG so called smart TV. Totally disappointed that I can't play @115850 prime video as it doesn't support flash,DIGITAL_TECHNICAL,medium,DIGITAL_TECHNICAL,,False,False
+273850,amazonhelp_273850,2017-10-06 04:27:04+00:00,@AmazonHelp I hv ordered one item by using amazon pay balance. But i hvn't received my 15% cashback. Plz solve my prblm,PAYMENT_BILLING_GIFTCARD,high,PAYMENT_BILLING_GIFTCARD,,False,False
+277600,amazonhelp_277600,2017-10-06 07:44:49+00:00,. @115830 why do you insist on sending boxes inside other boxes? It's such a waste and happens every time https://t.co/GCF1CQ15aV,CONTEXT_NEEDED,low,CONTEXT_NEEDED,,False,False
+279213,amazonhelp_279213,2017-10-03 09:10:01+00:00,"Just left a rather frustrated feedback post for a @115830 order that never turned up, parcel got left at the @126705 PDO for 3 days.",DELIVERY_DELAY,medium,DELIVERY_DELAY,,False,False
+279516,amazonhelp_279516,2017-10-06 09:08:11+00:00,"Qu'une chose à dire ! BRAVO @120533 pour votre service client, vous êtes loins devant les autres ! @14147",CONTEXT_NEEDED,low,CONTEXT_NEEDED,,False,False
+279673,amazonhelp_279673,2017-10-06 09:37:21+00:00,It's a sad state of affairs when @115821 @amazonhelp don't care about customer service. Seriously considering never using them again.,SUPPORT_ESCALATION,medium,SUPPORT_ESCALATION,,False,False
+280122,amazonhelp_280122,2017-10-06 09:45:13+00:00,Amazon で注文した分のミニスーパーファミコンが到着せず、勝手に返金処理になってて「？？？」と思ったけど、結構な人数が該当してるのか・・・。カスタマーにメールは投げたけど、返事いつ来るんだろ？,CONTEXT_NEEDED,low,RETURN_REFUND_REPLACEMENT,,False,False
+280428,amazonhelp_280428,2017-10-06 08:42:18+00:00,Couldn’t win the #CutTheCord challenge so ordered my own amazon fire Tv stick @128308 @AmazonHelp ! https://t.co/qBhrq2Qlux,DIGITAL_TECHNICAL,medium,DIGITAL_TECHNICAL,,False,False
+280676,amazonhelp_280676,2017-10-06 08:31:49+00:00,"@115850 How can someone hack into amazon.in account.Change email id, ph no.on top of it my order gets cancelled,paybalance account blocked",ACCOUNT_ACCESS_SECURITY,high,ACCOUNT_ACCESS_SECURITY,,False,False
+281972,amazonhelp_281972,2017-10-06 11:37:49+00:00,@115821 u need to get it together with ur customer service. If they can't speak English than they shouldn't take phone calls with customers,SUPPORT_ESCALATION,medium,SUPPORT_ESCALATION,,False,False
+282160,amazonhelp_282160,2017-10-06 11:24:40+00:00,"@115850 Hi, who do I contact from your side as yiur system us unable to recognize my phone's IMEI number for exchange. I own a S6 edge",RETURN_REFUND_REPLACEMENT,high,RETURN_REFUND_REPLACEMENT,,False,False
+282751,amazonhelp_282751,2017-10-06 12:33:36+00:00,Schon wieder kam das Paket nicht an @124285 @AmazonHelp !!!! Was soll die scheisse dafür bezahlt man also Prime https://t.co/84NcpVpvuF,PRIME_MEMBERSHIP,medium,PRIME_MEMBERSHIP,,False,False
+283504,amazonhelp_283504,2017-10-06 13:06:33+00:00,@115851 stop outsourcing business to India as they do not deserve to work for such a big brand @AmazonHelp @115850,CONTEXT_NEEDED,low,SUPPORT_ESCALATION,,False,False
+283524,amazonhelp_283524,2017-10-06 13:01:37+00:00,amazonで頼んでたミニスーファミが配送時のミスで返送になったとメールが来てkonozamaってる。,CONTEXT_NEEDED,low,DELIVERY_PROOF_FAILURE,,False,False
+284819,amazonhelp_284819,2017-10-06 13:38:41+00:00,@115850 why there is no COD or exchange available for #Sikkim.. are we not part of India?,RETURN_REFUND_REPLACEMENT,high,ORDER_MANAGEMENT,,False,False
+285629,amazonhelp_285629,2017-10-06 14:18:03+00:00,I love how I pay for Prime and my package that I really needed in 2 days is going to take over a week to get to me @AmazonHelp 👎🏼👎🏼👎🏼,DELIVERY_DELAY,medium,DELIVERY_DELAY,,False,False
+286329,amazonhelp_286329,2017-10-06 13:59:07+00:00,"@115850 @115821 
+Didn't get any resolution from you guys.
+U keep deducting money for the same thing. @115850 and @115821 please help.",CONTEXT_NEEDED,low,SUPPORT_ESCALATION,,False,False
+288166,amazonhelp_288166,2017-10-11 09:46:51+00:00,@115850 I need your help in   Amazon delivery,DELIVERY_DELAY,medium,DELIVERY_DELAY,,False,False
+288179,amazonhelp_288179,2017-10-11 09:47:07+00:00,@115850 why don't u release name of winner in app,CONTEXT_NEEDED,low,CONTEXT_NEEDED,,False,False
+288186,amazonhelp_288186,2017-10-11 09:37:09+00:00,@115850 WORST CUSTOMER SERVICE. ABSOLUTLY IRRESPONSIBLE AND SHAMELESS,SUPPORT_ESCALATION,medium,SUPPORT_ESCALATION,,False,False
+291369,amazonhelp_291369,2017-10-06 15:32:53+00:00,@AmazonHelp Customer Care Associate is saying we don't have supervisor totally hopeless,SUPPORT_ESCALATION,medium,SUPPORT_ESCALATION,,False,False
+293742,amazonhelp_293742,2017-10-06 17:12:58+00:00,Double bought something on Amazon and they won't let me cancel it ... :(,ORDER_MANAGEMENT,high,ORDER_MANAGEMENT,,False,False
+293747,amazonhelp_293747,2017-10-06 17:11:34+00:00,"@117634 Just noticed this white patch on my #Kindle PW when the background was all clear.
+
+Please assist.
+
+@115850 @AmazonHelp https://t.co/cvBOl4nWet",DIGITAL_TECHNICAL,medium,DIGITAL_TECHNICAL,,False,False
+294347,amazonhelp_294347,2017-10-06 16:53:23+00:00,@145529 tracking number 962119647 . Been following up since past one week . No one called and no delivery . @115850 order .,DELIVERY_DELAY,medium,DELIVERY_DELAY,,False,False
+295371,amazonhelp_295371,2017-10-06 17:40:38+00:00,Waiting for water to boil doesn't compare to waiting for your Amazon shipment to arrive when it's out for delivery.,DELIVERY_DELAY,medium,DELIVERY_DELAY,,False,False
+299647,amazonhelp_299647,2017-10-06 19:33:32+00:00,@115821 hi i bought oneplus 5 in exchange scheme by mistake i took 64 gb instead 128 gb with no cost emi on citi plz help to get 128gb,RETURN_REFUND_REPLACEMENT,high,RETURN_REFUND_REPLACEMENT,,False,False
+300566,amazonhelp_300566,2017-10-06 20:21:15+00:00,@135787  teaches me right for ordering something so amazing from @115821.  No bubblewrap or anything and the cover is ruined… https://t.co/mj55hm4iwX,CONTEXT_NEEDED,low,PRODUCT_SELLER_ISSUE,,False,False
+304033,amazonhelp_304033,2017-10-06 22:08:37+00:00,Have still not got a response for my email @AmazonHelp @115850,CONTEXT_NEEDED,low,SUPPORT_ESCALATION,,False,False
+309454,amazonhelp_309454,2017-10-07 01:28:45+00:00,@AmazonHelp hey i had a prime now package that says it was undeliverable..what does that mean,DELIVERY_DELAY,medium,DELIVERY_DELAY,,False,False
+313904,amazonhelp_313904,2017-10-07 05:44:42+00:00,Fuck @115821 and not delivering my package when I paid for 1 day shipping. That's bullshit,DELIVERY_DELAY,medium,DELIVERY_DELAY,,False,False
+314232,amazonhelp_314232,2017-10-07 05:25:26+00:00,@116618 curious to know why last 6 episodes of Suits S6 made unavailable in India since yesterday...Fire stick is not working as well,PRODUCT_SELLER_ISSUE,high,DIGITAL_TECHNICAL,,False,False
+315756,amazonhelp_315756,2017-10-07 06:38:41+00:00,What this means is that the great savings advertised is unreliable &amp; @115850 has put no controls in place #AmazonGreatIndianFestival https://t.co/gYCzsXAjaX,CONTEXT_NEEDED,low,CONTEXT_NEEDED,,False,False
+317430,amazonhelp_317430,2017-10-07 08:39:03+00:00,@115833 what prevents nuisance callers leaving messages on echo now drop in enabled? Or prevents anyone in household picking up message,DIGITAL_TECHNICAL,medium,DIGITAL_TECHNICAL,,False,False
+317437,amazonhelp_317437,2017-10-07 06:54:32+00:00,@AmazonHelp how much time it take to reflect payment in Amazon pay after loading money. @115821,PAYMENT_BILLING_GIFTCARD,high,PAYMENT_BILLING_GIFTCARD,,False,False
+317725,amazonhelp_317725,2017-10-07 07:28:38+00:00,"@115850 Hi, could you pls ask your email customer service dept.  To respond against my email pending since 3 days.",SUPPORT_ESCALATION,medium,SUPPORT_ESCALATION,,False,False
+317926,amazonhelp_317926,2017-10-07 09:11:49+00:00,@115821 my name is Avelino Baptista Amazon lost my products and they wouldn't refund me back my money.,RETURN_REFUND_REPLACEMENT,high,RETURN_REFUND_REPLACEMENT,,False,False
+318401,amazonhelp_318401,2017-10-07 08:33:58+00:00,@115850 am alrdy a  prime member custcare confirm tat u cant buy prime ahead before it ends and u will be charged 499 again please suggest,PAYMENT_BILLING_GIFTCARD,high,PRIME_MEMBERSHIP,,False,False
+318808,amazonhelp_318808,2017-10-07 09:15:00+00:00,"@115850 pathetic prime experience! still awaiting my delivery 2 days now, u don't even have delivery guys number?",DELIVERY_DELAY,medium,DELIVERY_DELAY,,False,False
+320002,amazonhelp_320002,2017-10-07 11:50:46+00:00,£250 was fraudulently spent on my account and I am yet to receive a satisfactory response from @115830 @AmazonHelp https://t.co/0XmYZdZ0S1,CONTEXT_NEEDED,low,ACCOUNT_ACCESS_SECURITY,,False,False
+320871,amazonhelp_320871,2017-10-07 12:29:35+00:00,"@115821 the mantra used to be based around 2-Day Shipping, but I have yet another “delayed delivery”.",DELIVERY_DELAY,medium,DELIVERY_DELAY,,False,False
+321107,amazonhelp_321107,2017-10-07 12:35:12+00:00,"Ich muss an dieser Stelle einmal anmerken, wie schlecht die Benutzeroberfläche vom @AmazonHelp-Fire-TV-Stick seit dem Update neulich ist. 😤",CONTEXT_NEEDED,low,DIGITAL_TECHNICAL,,False,False
+321386,amazonhelp_321386,2017-10-07 12:52:18+00:00,@115850 Really poor delivery service. Please keep your words whatever you commit.,DELIVERY_DELAY,medium,DELIVERY_DELAY,,False,False
+321685,amazonhelp_321685,2017-10-07 13:11:01+00:00,"@AmazonHelp @115830 what light fittings does the included Hue bulb have please, bayonet or screw https://t.co/9QPZkjSxr9",CONTEXT_NEEDED,low,PRODUCT_SELLER_ISSUE,,False,False
+321705,amazonhelp_321705,2017-10-07 13:08:46+00:00,"@115821 @115817 I know I can't blame you for the rain making the shipping box fall apart, but my @192637 got all smashed up. 😔 https://t.co/zEjtkbXrPA",DELIVERY_DELAY,medium,PRODUCT_SELLER_ISSUE,,False,False
+322866,amazonhelp_322866,2017-10-07 14:12:09+00:00,@AmazonHelp Your idiot driver instead of driving pkg to home left in dirt on ground at mailboxes next to busy hwy 1/2 mile from house. #fail,CONTEXT_NEEDED,low,DELIVERY_PROOF_FAILURE,,False,False
+322926,amazonhelp_322926,2017-10-07 13:56:45+00:00,"@AmazonHelp @115821 @115850 3 calls to customer care and received 3 answers , but did not find the solution .Losing patience to call again",SUPPORT_ESCALATION,medium,SUPPORT_ESCALATION,,False,False
+325825,amazonhelp_325825,2017-10-07 15:40:03+00:00,@115850 Used iPad pro 10.5 delivered bought under Amazon Prime(ORDER # 403-9705714-1369907). Never expected this from Amazon Prime.,DELIVERY_PROOF_FAILURE,high,PRODUCT_SELLER_ISSUE,,False,False
+325874,amazonhelp_325874,2017-10-07 15:50:07+00:00,Just got so pissed off at @115821 ‘s website I didn’t even end up buying the dog food I meant to buy in the first place.,CONTEXT_NEEDED,low,ORDER_MANAGEMENT,,False,False
+326302,amazonhelp_326302,2017-10-07 15:55:30+00:00,"@115850
+Order date
+07-Oct-2017
+Order #
+171-6132696-2878733 but not able to make payment even after inserting right otp",PAYMENT_BILLING_GIFTCARD,high,PAYMENT_BILLING_GIFTCARD,,False,False
+327984,amazonhelp_327984,2017-10-07 17:12:42+00:00,@AmazonHelp Been sat in all day waiting for my parcel to arrive!! Not much update on the tracker either!,DELIVERY_DELAY,medium,DELIVERY_DELAY,,False,False
+330900,amazonhelp_330900,2017-10-07 17:48:29+00:00,"(2) Dear @115850 I also understand that I am not one to you, but you are one to me... hope you understand!!! 😏😏",CONTEXT_NEEDED,low,CONTEXT_NEEDED,,False,False
+332007,amazonhelp_332007,2017-10-07 18:24:58+00:00,@AmazonHelp hi...some thing are coming damage...so pls see that..,CONTEXT_NEEDED,low,PRODUCT_SELLER_ISSUE,,False,False
+332398,amazonhelp_332398,2017-10-07 19:02:57+00:00,A msg to anyone that has an amazon account! @115821 @115830 @AmazonHelp took £79.99 of us by signing us upto amazon prime without consent,PRIME_MEMBERSHIP,medium,PRIME_MEMBERSHIP,,False,False
+332757,amazonhelp_332757,2017-10-07 19:19:43+00:00,Are there some @115821 books that are only available on @117634 unlimited?? Why won’t it let me buy The Handmaids Tale? #prime,PRIME_MEMBERSHIP,medium,PRIME_MEMBERSHIP,,False,False
+33301,amazonhelp_33301,2017-11-01 12:59:03+00:00,My order number: 171-2623585-5777153 is not yet delivered. This is the third time I am facing the problem @115850,ORDER_MANAGEMENT,high,DELIVERY_DELAY,,False,False
+333568,amazonhelp_333568,2017-10-07 19:46:20+00:00,Forgot to cancel my 6 month Amazon prime student membership and its charged me for a new year one kmn,PAYMENT_BILLING_GIFTCARD,high,PRIME_MEMBERSHIP,,False,False
+334111,amazonhelp_334111,2017-10-07 17:04:47+00:00,@115850 @118919 Guys it's my humble request to all please don't go with prime membership of Amazon it's waste of money. Worst expc,PRIME_MEMBERSHIP,medium,PRIME_MEMBERSHIP,,False,False
+334875,amazonhelp_334875,2017-10-07 20:34:48+00:00,"“Out for delivery” since Wednesday. What gives?
+.@3375 .@AmazonHelp .@115821 https://t.co/GF6gDxkAj4",DELIVERY_DELAY,medium,DELIVERY_DELAY,,False,False
+335247,amazonhelp_335247,2017-10-07 20:37:49+00:00,"I have a feeling that my amazon order was lost before it got to the carrier. 
+
+Local stores stopped carrying it. Needed it for Sunday A.M.☹️",CONTEXT_NEEDED,low,DELIVERY_DELAY,,False,False
+338899,amazonhelp_338899,2017-10-07 23:10:46+00:00,"Dear @115821 having just ordered a pair of walking boots, how likely is it,that what I really want to buy, is another pair of walking boots?",CONTEXT_NEEDED,low,CONTEXT_NEEDED,,False,False
+339160,amazonhelp_339160,2017-10-07 23:13:21+00:00,@AmazonHelp What is going on with the shipping of John Green new book Turtles All The Way Down? My book was supposed to ship yesterday and,DELIVERY_DELAY,medium,DELIVERY_DELAY,,False,False
+339933,amazonhelp_339933,2017-10-07 16:06:11+00:00,アマゾンからCDが届いたんだけど、またしてもケースの細い部分が折れちゃってフタが外れていた。これで何回目だよ。マジで改善求む！,CONTEXT_NEEDED,low,PRODUCT_SELLER_ISSUE,,False,False
+340531,amazonhelp_340531,2017-10-08 00:25:08+00:00,"Literally the Doll house my daughter ordered from @115821 had a dildo in the box. How is this ok, AMAZON?!?!?!?",CONTEXT_NEEDED,low,PRODUCT_SELLER_ISSUE,,False,False
+38104,amazonhelp_38104,2017-11-01 14:34:02+00:00,@115850 @AmazonHelp Very disappointed with delivery service. I won't any order from #Amazon in future.,DELIVERY_DELAY,medium,DELIVERY_DELAY,,False,False
+38204,amazonhelp_38204,2017-11-01 14:28:48+00:00,@123813 ¿Cuándo va a salir la app para Xbox One?,CONTEXT_NEEDED,low,CONTEXT_NEEDED,,False,False
+38844,amazonhelp_38844,2017-11-01 14:38:15+00:00,I signed up for Amazon Student Prime JUST IN TIME for school and Christmas. https://t.co/FmgJw2NklJ,PRIME_MEMBERSHIP,medium,PRIME_MEMBERSHIP,,False,False
+42538,amazonhelp_42538,2017-11-01 15:37:32+00:00,@115850 what about refund for order returned? Kindly initiate asap,RETURN_REFUND_REPLACEMENT,high,RETURN_REFUND_REPLACEMENT,,False,False
+47949,amazonhelp_47949,2017-11-01 16:51:38+00:00,@115821 this is ridiculous! My drum head came in a broken box and is warped and ripped https://t.co/gqxCT5oUXa,CONTEXT_NEEDED,low,PRODUCT_SELLER_ISSUE,,False,False
+52946,amazonhelp_52946,2017-11-01 18:25:26+00:00,"@115821 please update your app, these dialogs are OLD. https://t.co/PSM3eXuVIf",CONTEXT_NEEDED,low,DIGITAL_TECHNICAL,,False,False
+55041,amazonhelp_55041,2017-11-01 19:12:08+00:00,@AmazonHelp My order still says “Preparing for shipment” and I ordered it October 25. 😔,DELIVERY_DELAY,medium,DELIVERY_DELAY,,False,False
+61047,amazonhelp_61047,2017-11-01 21:10:46+00:00,#AmazonIndia worst service. Almost a month has passed but my refund still not processed. Executive are giving fake assurance every time when I call them. They say that I am handling your concern from now and  when I call next time the new one say may I know your problem.,RETURN_REFUND_REPLACEMENT,high,RETURN_REFUND_REPLACEMENT,,False,False
+62131,amazonhelp_62131,2017-11-23 03:34:16+00:00,"AmazonからめっぞCD届いたんだけどさ、
+まじでこんな梱包してくる奴あるかよ！！！？！？
+特典裏向きで直接テープ付けるか普通？！？！？袋ぐらい入れろよな
+まじでありえないんだけど！！！！ https://t.co/wz6SxJBGf9",CONTEXT_NEEDED,low,PRODUCT_SELLER_ISSUE,,False,False
+63115,amazonhelp_63115,2017-11-01 21:56:27+00:00,"@115830 You seem to be asking too much of your delivery drivers, two consecutive Prime deliveries not turned up on the promised day",DELIVERY_PROOF_FAILURE,high,DELIVERY_PROOF_FAILURE,,False,False
+64096,amazonhelp_64096,2017-11-30 07:39:35+00:00,"@AmazonHelp Hi Amazon, I signed up this week and placed an order. Now when I try sign in, it says my email isn't registered? Please help!",ACCOUNT_ACCESS_SECURITY,high,ACCOUNT_ACCESS_SECURITY,,False,False
+64214,amazonhelp_64214,2017-11-29 13:07:09+00:00,"@AmazonHelp Been waiting for my order for over a week now, the first time it said it was “delivered” at 11:45pm 🤔 now the replacement said attempted delivery last night when I was sat in waiting all evening...customer service are useless.",RETURN_REFUND_REPLACEMENT,high,DELIVERY_PROOF_FAILURE,,False,False
+659,amazonhelp_659,2017-10-31 22:02:14+00:00,"@115821, it’d be nice if the book I waited 4 months for wasn’t damaged inside of an undented box. #twinpeaks #twin… https://t.co/Lac4K7iQzJ https://t.co/JroqJKrH9Q",PRODUCT_SELLER_ISSUE,high,PRODUCT_SELLER_ISSUE,,False,False
+67534,amazonhelp_67534,2017-11-30 08:57:52+00:00,アマゾンで予約した例の本の支払い番号まだ来てなくてワロタ,CONTEXT_NEEDED,low,PAYMENT_BILLING_GIFTCARD,,False,False
+69662,amazonhelp_69662,2017-11-30 09:31:55+00:00,@115850 hey I need help regarding my order.,CONTEXT_NEEDED,low,CONTEXT_NEEDED,,False,False
+71851,amazonhelp_71851,2017-11-30 10:18:33+00:00,@115830 let’s see if your delivery driver actually deliver today. Yesterday he turned up at my office walked into reception and walked straight back out again for me to get an ‘attempted delivery’. For that effort... just deliver the package! #pointless,DELIVERY_DELAY,medium,DELIVERY_PROOF_FAILURE,,False,False
+75827,amazonhelp_75827,2017-11-30 11:36:55+00:00,"El concepto de Amazon locker de @116928 es muy bueno, pero llega @80 y lo jode. Depositan los pedidos a ultimísima hora de la tarde haciendo de facto que el pedido tarde un día más.@80  dando ese toque de picaresca tan español.",CONTEXT_NEEDED,low,DELIVERY_DELAY,,False,False
+77403,amazonhelp_77403,2017-11-30 12:05:32+00:00,Quem recebeu a caixa da BF hoje? 😍 @117086 fazendo meu dia mais feliz ainda. https://t.co/lzKCESis6N,CONTEXT_NEEDED,low,CONTEXT_NEEDED,,False,False
+78726,amazonhelp_78726,2017-11-30 12:33:19+00:00,"@116316 so will my package arrive today? #prime #amazon should be in j+1 for #belgium , now 2 days I wait until 21h30 for nothing #failure @4738 https://t.co/VcywvF1eRA",DELIVERY_DELAY,medium,DELIVERY_DELAY,,False,False
+83392,amazonhelp_83392,2017-11-30 03:50:41+00:00,@AmazonHelp @115821 trying to set up a fire HD for my daughter on teen account. And it won't register. Using chat to resolve issue. 2nd level says another team needs to help and they will contact me in 24-48 hours. Not acceptable.,SUPPORT_ESCALATION,medium,SUPPORT_ESCALATION,,False,False
+83565,amazonhelp_83565,2017-11-30 13:21:01+00:00,"@115830 i have received a message from dpd showing a lovely picture of someone’s house, not mine. And said they csnnot deliver. I need that parcel today, I’m home today that’s why I ordered it for today. Not happy at all.",DELIVERY_DELAY,medium,DELIVERY_PROOF_FAILURE,,False,False
+86159,amazonhelp_86159,2017-11-30 14:13:11+00:00,"Paid for @115821 prime just to still not have my package here 5 Days later 🙃.
+
+Patiently awaits tho bro,",DELIVERY_DELAY,medium,DELIVERY_DELAY,,False,False
+9147,amazonhelp_9147,2017-10-31 04:06:28+00:00,"@115850 order ID ending with 5148337, I paid ur delivery guy 1000 Rs for a 690 Rs order, asked him to add 310 to wallet, Y s it not done?",DELIVERY_PROOF_FAILURE,high,PAYMENT_BILLING_GIFTCARD,,False,False
+93645,amazonhelp_93645,2017-11-30 15:30:17+00:00,@115821 What's up guys? Every one of my recent NYC deliveries has been taking 3 days+. Amazon Prime seems to pay for nothing these days.,PRIME_MEMBERSHIP,medium,PRIME_MEMBERSHIP,,False,False
+9796,amazonhelp_9796,2017-11-01 00:17:29+00:00,The reliability of @115821 2 Day Prime is hitting an all time low. Not sure what is going on over there.,PRIME_MEMBERSHIP,medium,PRIME_MEMBERSHIP,,False,False
+98621,amazonhelp_98621,2017-11-30 16:44:17+00:00,"@120533 si tu livres les colis à l’autre bout de la ville, je n’irais pas les chercher ! Et dire que j’a payé Prime pour être tranquille 😡",PRIME_MEMBERSHIP,medium,PRIME_MEMBERSHIP,,False,False
+98788,amazonhelp_98788,2017-11-30 16:08:05+00:00,"LOL, @115821 Prime 2-day shipping takes almost 7 days to arrive!",DELIVERY_DELAY,medium,DELIVERY_DELAY,,False,False
+99859,amazonhelp_99859,2017-11-30 16:45:09+00:00,"@115821 dint get the benefit of cash back offer on 19th nov 2017 purchase of ₹2054, which paid by amezon pay!Order # 402-4299710-3785923",CONTEXT_NEEDED,low,PAYMENT_BILLING_GIFTCARD,,False,False

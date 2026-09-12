@@ -2,6 +2,12 @@ from pathlib import Path
 import pandas as pd
 import joblib
 
+from support_agent import (
+    classify_intent,
+    make_decision,
+    draft_response,
+)
+
 from sklearn.metrics import (
     accuracy_score,
     f1_score,
@@ -9,12 +15,16 @@ from sklearn.metrics import (
 )
 
 
+# ============================================================
+# FILES
+# ============================================================
+
 GOLDEN_FILE = Path(
-    "data/evaluation/golden_set.csv"
+    "data/evaluation/golden_set_clean.csv"
 )
 
 MESSAGES_FILE = Path(
-    "data/processed/amazonhelp_dev_messages.csv"
+    "data/processed/amazonhelp_train_messages.csv"
 )
 
 MODEL_FILE = Path(
@@ -77,7 +87,7 @@ def clean_text(text):
 
 
 # ============================================================
-# BUILD SIMPLE RETRIEVAL INDEX
+# BUILD RETRIEVAL INDEX
 # ============================================================
 
 def build_retrieval_index(messages):
@@ -191,8 +201,18 @@ def retrieve_evidence(
 
         results.append(
             {
-                "similarity": similarity,
+                "tweet_id": row["tweet_id"],
                 "conversation_id": conversation_id,
+                "similarity": similarity,
+                "customer_message": str(
+                    row["text"]
+                ),
+                "support_replies": (
+                    support_messages["text"]
+                    .fillna("")
+                    .astype(str)
+                    .tolist()
+                ),
             }
         )
 
@@ -200,85 +220,6 @@ def retrieve_evidence(
             break
 
     return results
-
-
-# ============================================================
-# DECISION LOGIC
-# ============================================================
-
-def make_decision(
-    intent,
-    confidence,
-    evidence,
-):
-
-    if not evidence:
-
-        return (
-            "ESCALATE",
-            "No sufficiently similar historical support case was found."
-        )
-
-    if intent == "CONTEXT_NEEDED":
-
-        return (
-            "ESCALATE",
-            "The customer message does not contain enough information to identify the issue."
-        )
-
-    if confidence is None:
-
-        return (
-            "ESCALATE",
-            "The classifier did not provide a confidence score."
-        )
-
-    best_similarity = max(
-        item["similarity"]
-        for item in evidence
-    )
-
-    if confidence < 0.50:
-
-        return (
-            "ESCALATE",
-            "Intent confidence is too low."
-        )
-
-    if best_similarity < 0.20:
-
-        return (
-            "ESCALATE",
-            "Historical evidence is weak."
-        )
-
-    if confidence < 0.65 and best_similarity < 0.35:
-
-        return (
-            "ESCALATE",
-            "Intent confidence and historical evidence are both moderate."
-        )
-
-    if intent == "ACCOUNT_ACCESS_SECURITY":
-
-        if confidence < 0.80:
-
-            return (
-                "ESCALATE",
-                "Account-security issues require higher confidence."
-            )
-
-    if intent == "SUPPORT_ESCALATION":
-
-        return (
-            "ESCALATE",
-            "The customer reports unsuccessful support interactions."
-        )
-
-    return (
-        "AUTO-HANDLE",
-        "Intent confidence and historical evidence passed the automatic-handling thresholds."
-    )
 
 
 # ============================================================
@@ -348,25 +289,11 @@ def main():
         # Intent
         # -----------------------------------------------
 
-        X = classifier_vectorizer.transform(
-            [message]
+        intent, confidence = classify_intent(
+            message=message,
+            model=model,
+            vectorizer=classifier_vectorizer,
         )
-
-        intent = model.predict(
-            X
-        )[0]
-
-        confidence = None
-
-        if hasattr(model, "predict_proba"):
-
-            probabilities = model.predict_proba(
-                X
-            )[0]
-
-            confidence = float(
-                probabilities.max()
-            )
 
         # -----------------------------------------------
         # Evidence
@@ -395,12 +322,23 @@ def main():
 
         decision, reason = make_decision(
             intent=intent,
-            confidence=confidence,
+            classifier_confidence=confidence,
             evidence=evidence,
         )
 
         # -----------------------------------------------
-        # Save row
+        # Draft response
+        # -----------------------------------------------
+
+        response = draft_response(
+            message=message,
+            intent=intent,
+            evidence=evidence,
+            decision=decision,
+        )
+
+        # -----------------------------------------------
+        # Save result
         # -----------------------------------------------
 
         results.append(
@@ -415,53 +353,57 @@ def main():
 
                 "predicted_intent": intent,
 
-                "classifier_confidence": confidence,
-
-                "is_ambiguous": row[
-                    "is_ambiguous"
-                ],
-
-                "needs_context": row[
-                    "needs_context"
-                ],
+                "confidence": confidence,
 
                 "decision": decision,
 
                 "decision_reason": reason,
 
-                "num_evidence_cases": len(
+                "best_similarity": best_similarity,
+
+                "evidence_found": bool(
                     evidence
                 ),
 
-                "best_similarity": best_similarity,
+                "agent_reply": response,
             }
         )
 
-    result_df = pd.DataFrame(
+    # ========================================================
+    # RESULTS DATAFRAME
+    # ========================================================
+
+    results_df = pd.DataFrame(
         results
     )
 
-    # ========================================================
-    # METRICS
-    # ========================================================
+    # --------------------------------------------------------
+    # Classification metrics
+    # --------------------------------------------------------
 
-    y_true = result_df[
+    y_true = results_df[
         "human_intent"
     ]
 
-    y_pred = result_df[
+    y_pred = results_df[
         "predicted_intent"
     ]
 
-    intent_accuracy = accuracy_score(
+    accuracy = accuracy_score(
         y_true,
         y_pred,
     )
 
-    intent_macro_f1 = f1_score(
+    macro_f1 = f1_score(
         y_true,
         y_pred,
         average="macro",
+        zero_division=0,
+    )
+
+    report = classification_report(
+        y_true,
+        y_pred,
         zero_division=0,
     )
 
@@ -469,111 +411,45 @@ def main():
     # Decision metrics
     # --------------------------------------------------------
 
-    context_rows = result_df[
-        result_df["needs_context"].astype(str).str.lower()
-        == "yes"
-    ]
-
-    if len(context_rows) > 0:
-
-        context_escalation_rate = (
-            context_rows["decision"]
-            .eq("ESCALATE")
-            .mean()
-        )
-
-    else:
-
-        context_escalation_rate = 0.0
-
     auto_handle_rate = (
-        result_df["decision"]
-        .eq("AUTO-HANDLE")
-        .mean()
+        results_df["decision"]
+        == "AUTO-HANDLE"
+    ).mean()
+
+    escalation_rate = (
+        results_df["decision"]
+        == "ESCALATE"
+    ).mean()
+
+    context_mask = (
+        results_df["human_intent"]
+        == "CONTEXT_NEEDED"
     )
 
-    escalate_rate = (
-        result_df["decision"]
-        .eq("ESCALATE")
-        .mean()
-    )
+    context_escalation = 0.0
 
-    evidence_rate = (
-        result_df["num_evidence_cases"]
-        .gt(0)
+    if context_mask.sum() > 0:
+
+        context_escalation = (
+            results_df.loc[
+                context_mask,
+                "decision"
+            ]
+            == "ESCALATE"
+        ).mean()
+
+    evidence_found_rate = (
+        results_df["evidence_found"]
         .mean()
     )
 
     average_similarity = (
-        result_df["best_similarity"]
+        results_df["best_similarity"]
         .mean()
     )
 
     # ========================================================
-    # CLASSIFICATION REPORT
-    # ========================================================
-
-    classification = classification_report(
-        y_true,
-        y_pred,
-        zero_division=0,
-    )
-
-    # ========================================================
-    # SAVE RESULTS
-    # ========================================================
-
-    OUTPUT_FILE.parent.mkdir(
-        parents=True,
-        exist_ok=True,
-    )
-
-    result_df.to_csv(
-        OUTPUT_FILE,
-        index=False,
-    )
-
-    report = f"""
-COMPLETE SUPPORT AGENT EVALUATION
-=================================
-
-Golden examples: {len(result_df)}
-
-Intent Accuracy:
-{intent_accuracy:.4f}
-
-Intent Macro F1:
-{intent_macro_f1:.4f}
-
-Auto-handle rate:
-{auto_handle_rate:.4f}
-
-Escalation rate:
-{escalate_rate:.4f}
-
-Context-needed escalation rate:
-{context_escalation_rate:.4f}
-
-Historical evidence found:
-{evidence_rate:.4f}
-
-Average best historical similarity:
-{average_similarity:.4f}
-
-
-CLASSIFICATION REPORT
-=====================
-
-{classification}
-"""
-
-    REPORT_FILE.write_text(
-        report,
-        encoding="utf-8",
-    )
-
-    # ========================================================
-    # PRINT
+    # PRINT RESULTS
     # ========================================================
 
     print()
@@ -583,12 +459,12 @@ CLASSIFICATION REPORT
 
     print(
         f"Intent accuracy:              "
-        f"{intent_accuracy:.4f}"
+        f"{accuracy:.4f}"
     )
 
     print(
         f"Intent macro F1:              "
-        f"{intent_macro_f1:.4f}"
+        f"{macro_f1:.4f}"
     )
 
     print(
@@ -598,17 +474,17 @@ CLASSIFICATION REPORT
 
     print(
         f"Escalation rate:              "
-        f"{escalate_rate:.4f}"
+        f"{escalation_rate:.4f}"
     )
 
     print(
         f"Context-needed escalation:    "
-        f"{context_escalation_rate:.4f}"
+        f"{context_escalation:.4f}"
     )
 
     print(
         f"Evidence found:               "
-        f"{evidence_rate:.4f}"
+        f"{evidence_found_rate:.4f}"
     )
 
     print(
@@ -618,15 +494,49 @@ CLASSIFICATION REPORT
 
     print()
     print("Classification report:")
-    print(
-        classification
+    print(report)
+
+    # ========================================================
+    # SAVE
+    # ========================================================
+
+    OUTPUT_FILE.parent.mkdir(
+        parents=True,
+        exist_ok=True,
+    )
+
+    results_df.to_csv(
+        OUTPUT_FILE,
+        index=False,
+    )
+
+    report_text = (
+        "COMPLETE SUPPORT AGENT EVALUATION\n"
+        "=================================\n\n"
+        f"Examples: {len(results_df)}\n"
+        f"Intent accuracy: {accuracy:.4f}\n"
+        f"Intent macro F1: {macro_f1:.4f}\n"
+        f"Auto-handle rate: {auto_handle_rate:.4f}\n"
+        f"Escalation rate: {escalation_rate:.4f}\n"
+        f"Context-needed escalation: {context_escalation:.4f}\n"
+        f"Evidence found: {evidence_found_rate:.4f}\n"
+        f"Average best similarity: {average_similarity:.4f}\n\n"
+        "Classification report:\n"
+        f"{report}\n"
+    )
+
+    REPORT_FILE.write_text(
+        report_text,
+        encoding="utf-8",
     )
 
     print()
     print("Files created:")
+
     print(
         f"  {OUTPUT_FILE}"
     )
+
     print(
         f"  {REPORT_FILE}"
     )

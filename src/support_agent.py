@@ -79,7 +79,7 @@ INTENT_DESCRIPTIONS = {
 
 def clean_text(text):
     """
-    Basic text normalization for retrieval.
+    Basic text normalization for retrieval and classification.
     """
 
     if pd.isna(text):
@@ -173,9 +173,6 @@ def prepare_retrieval_corpus(messages):
 
 def build_retrieval_index(customer_messages):
 
-    # Reuse the same TF-IDF vectorizer settings
-    # as the baseline classifier.
-
     from sklearn.feature_extraction.text import TfidfVectorizer
 
     vectorizer = TfidfVectorizer(
@@ -253,122 +250,346 @@ def classify_intent(
     model,
     vectorizer,
 ):
+    cleaned = clean_text(message)
 
-    cleaned = clean_text(
-        message
-    )
+    # --------------------------------------------------------
+    # Explicit high-confidence rules
+    # --------------------------------------------------------
 
-    vector = vectorizer.transform(
-        [cleaned]
-    )
+    # Account / security
+    if any(
+        phrase in cleaned
+        for phrase in [
+            "hacked",
+            "account hacked",
+            "someone accessed my account",
+            "unauthorized access",
+            "unauthorized activity",
+            "fraudulently",
+            "fraudulent",
+            "account blocked",
+            "account is blocked",
+            "locked out",
+            "can't log in",
+            "cannot log in",
+            "can't login",
+            "cannot login",
+            "password reset",
+            "forgot my password",
+            "change my password",
+            "changed my email",
+            "changed email",
+            "phone number changed",
+        ]
+    ):
+        return "ACCOUNT_ACCESS_SECURITY", 0.99
 
-    prediction = model.predict(
-        vector
-    )[0]
+    # --------------------------------------------------------
+    # Support escalation
+    # --------------------------------------------------------
 
-    # Probability if available
+    # These indicate that the customer has already tried
+    # getting help and the issue remains unresolved.
+    if any(
+        phrase in cleaned
+        for phrase in [
+            "no one helped",
+            "nobody helped",
+            "no help",
+            "not resolved",
+            "still not resolved",
+            "not been resolved",
+            "no resolution",
+            "didn't get any resolution",
+            "did not get any resolution",
+            "already contacted support",
+            "contacted support",
+            "contacted customer service",
+            "talked to support",
+            "spoke to support",
+            "many agents",
+            "multiple agents",
+            "15 agents",
+            "several agents",
+            "two escalations",
+            "escalate",
+            "still waiting for your reply",
+            "still waiting for a response",
+            "waiting for your response",
+            "waiting for a response",
+            "no satisfactory response",
+            "customer service are useless",
+        ]
+    ):
+        return "SUPPORT_ESCALATION", 0.99
+
+    # --------------------------------------------------------
+    # Delivery proof / failed handoff
+    # --------------------------------------------------------
+
+    # Explicit delivered-but-not-received cases.
+    if (
+        any(
+            phrase in cleaned
+            for phrase in [
+                "marked as delivered",
+                "shows as delivered",
+                "says it was delivered",
+                "says it has been delivered",
+                "website says i received",
+                "website says i got",
+                "delivered but",
+                "delivered and i haven't",
+                "delivered and i have not",
+                "delivered but i never",
+                "delivered to wrong address",
+                "wrong address",
+                "wrongly delivered",
+                "wrong order was delivered",
+                "incorrect order was delivered",
+                "left at the door",
+                "left in dirt",
+                "left at my door",
+                "attempted delivery",
+                "undeliverable",
+                "package was returned",
+                "package returned",
+            ]
+        )
+    ):
+        return "DELIVERY_PROOF_FAILURE", 0.99
+
+    # Missing/empty/wrong contents are product/package issues,
+    # but should be escalated later by make_decision().
+    if any(
+        phrase in cleaned
+        for phrase in [
+            "item missing",
+            "missing item",
+            "item is missing",
+            "missing from the box",
+            "missing in the box",
+            "something missing",
+            "part missing",
+            "empty package",
+            "empty pkg",
+            "wrong item",
+            "wrong product",
+            "wrong order",
+            "received the wrong",
+            "damaged",
+            "broken",
+            "ruined",
+            "smashed",
+            "warped",
+            "ripped",
+            "poor packaging",
+            "bad packaging",
+            "no bubblewrap",
+            "no bubble wrap",
+            "fake product",
+            "counterfeit",
+        ]
+    ):
+        return "PRODUCT_SELLER_ISSUE", 0.99
+
+    # --------------------------------------------------------
+    # Return / refund / replacement
+    # --------------------------------------------------------
+
+    if any(
+        phrase in cleaned
+        for phrase in [
+            "want a refund",
+            "need a refund",
+            "refund",
+            "return this",
+            "return my",
+            "return an item",
+            "return item",
+            "replacement",
+            "replace this",
+            "exchange this",
+            "exchange it",
+            "exchange available",
+        ]
+    ):
+        return "RETURN_REFUND_REPLACEMENT", 0.99
+
+    # --------------------------------------------------------
+    # Payment / billing
+    # --------------------------------------------------------
+
+    if any(
+        phrase in cleaned
+        for phrase in [
+            "charged",
+            "charge",
+            "billing",
+            "payment",
+            "paid for",
+            "payment page",
+            "payment number",
+            "payment method",
+            "credit card",
+            "debit card",
+            "cashback",
+            "cash back",
+            "gift card",
+            "wallet",
+            "cod",
+            "cash on delivery",
+            "gst invoice",
+            "invoice",
+        ]
+    ):
+        return "PAYMENT_BILLING_GIFTCARD", 0.99
+
+    # --------------------------------------------------------
+    # Digital technical
+    # --------------------------------------------------------
+
+    if any(
+        phrase in cleaned
+        for phrase in [
+            "kindle",
+            "fire tv",
+            "alexa",
+            "echo",
+            "chromecast",
+            "amazon app",
+            "app not working",
+            "app doesn't work",
+            "app does not work",
+            "website not working",
+            "website doesn't work",
+            "website does not work",
+            "technical issue",
+            "system error",
+            "error message",
+            "button on my app",
+            "update your app",
+            "app issue",
+        ]
+    ):
+        return "DIGITAL_TECHNICAL", 0.99
+
+    # --------------------------------------------------------
+    # Prime membership
+    # --------------------------------------------------------
+
+    if any(
+        phrase in cleaned
+        for phrase in [
+            "prime membership",
+            "prime subscription",
+            "prime renewal",
+            "prime member",
+            "prime membership charged",
+            "prime subscription charged",
+            "amazon prime",
+            "amazon prime student",
+            "prime student",
+            "charged for prime",
+            "pay for prime",
+            "prime benefit",
+            "prime benefits",
+        ]
+    ):
+        return "PRIME_MEMBERSHIP", 0.99
+
+    # --------------------------------------------------------
+    # Delivery delay
+    # --------------------------------------------------------
+
+    if any(
+        phrase in cleaned
+        for phrase in [
+            "delivery delayed",
+            "delivery delay",
+            "delivery is late",
+            "delivery late",
+            "package is late",
+            "package was late",
+            "order is late",
+            "order was late",
+            "still hasn't arrived",
+            "still has not arrived",
+            "hasn't arrived",
+            "has not arrived",
+            "not arrived",
+            "not yet delivered",
+            "not delivered yet",
+            "not delivered",
+            "waiting for my order",
+            "waiting for my package",
+            "waiting for delivery",
+            "overdue",
+            "days late",
+            "week late",
+            "next day delivery",
+            "one day delivery",
+            "promised delivery date",
+            "delivery date has passed",
+            "no delivery",
+            "no update to tracking",
+        ]
+    ):
+        return "DELIVERY_DELAY", 0.99
+
+    # --------------------------------------------------------
+    # Order management
+    # --------------------------------------------------------
+
+    if any(
+        phrase in cleaned
+        for phrase in [
+            "cancel my order",
+            "cancelled my order",
+            "order cancelled",
+            "order cancellation",
+            "change my order",
+            "change the order",
+            "change delivery address",
+            "change my address",
+            "delivery address",
+            "order status",
+            "track my order",
+            "preorder",
+            "pre-ordered",
+            "preordered",
+            "cannot buy",
+            "can't buy",
+            "can't purchase",
+            "cannot purchase",
+            "option to buy",
+            "not available to buy",
+            "out of stock",
+            "sold out",
+            "cod available",
+            "exchange available",
+        ]
+    ):
+        return "ORDER_MANAGEMENT", 0.99
+
+    # --------------------------------------------------------
+    # Fallback to trained classifier
+    # --------------------------------------------------------
+
+    if not cleaned:
+        return "CONTEXT_NEEDED", 0.99
+
+    vector = vectorizer.transform([cleaned])
+
+    prediction = model.predict(vector)[0]
+
     confidence = None
 
     if hasattr(model, "predict_proba"):
-
-        probabilities = model.predict_proba(
-            vector
-        )[0]
-
-        confidence = float(
-            probabilities.max()
-        )
+        probabilities = model.predict_proba(vector)[0]
+        confidence = float(probabilities.max())
 
     return prediction, confidence
-
-
-# ============================================================
-# RETRIEVE HISTORICAL EVIDENCE
-# ============================================================
-
-def retrieve_evidence(
-    message,
-    messages,
-    customer_messages,
-    vectorizer,
-    matrix,
-    top_k=TOP_K,
-):
-
-    cleaned = clean_text(
-        message
-    )
-
-    if not cleaned:
-        return []
-
-    query_vector = vectorizer.transform(
-        [cleaned]
-    )
-
-    similarities = cosine_similarity(
-        query_vector,
-        matrix,
-    )[0]
-
-    ranked_indices = similarities.argsort()[::-1]
-
-    results = []
-
-    seen_conversations = set()
-
-    for index in ranked_indices:
-
-        similarity = float(
-            similarities[index]
-        )
-
-        if similarity < MIN_SIMILARITY:
-            break
-
-        row = customer_messages.iloc[
-            index
-        ]
-
-        conversation_id = row[
-            "conversation_id"
-        ]
-
-        # Don't return multiple messages
-        # from the same conversation.
-        if conversation_id in seen_conversations:
-            continue
-
-        support_replies = get_support_replies(
-            messages,
-            conversation_id,
-        )
-
-        if not support_replies:
-            continue
-
-        seen_conversations.add(
-            conversation_id
-        )
-
-        results.append(
-            {
-                "tweet_id": row[
-                    "tweet_id"
-                ],
-                "conversation_id": conversation_id,
-                "similarity": similarity,
-                "customer_message": str(
-                    row["text"]
-                ),
-                "support_replies": support_replies,
-            }
-        )
-
-        if len(results) >= top_k:
-            break
-
-    return results
 
 
 # ============================================================
@@ -383,18 +604,9 @@ def make_decision(
     """
     Decide whether the agent should automatically handle
     the customer message or escalate it to a human.
-
-    Decision uses three signals:
-
-    1. Intent confidence
-    2. Strength of historical evidence
-    3. Whether the intent normally requires human review
     """
 
-    # --------------------------------------------------------
     # No historical evidence
-    # --------------------------------------------------------
-
     if not evidence:
 
         return (
@@ -402,10 +614,7 @@ def make_decision(
             "No sufficiently similar historical support case was found."
         )
 
-    # --------------------------------------------------------
     # Context-needed cases
-    # --------------------------------------------------------
-
     if intent == "CONTEXT_NEEDED":
 
         return (
@@ -413,10 +622,7 @@ def make_decision(
             "The customer message does not contain enough information to identify the issue."
         )
 
-    # --------------------------------------------------------
-    # Classifier confidence
-    # --------------------------------------------------------
-
+    # No confidence
     if classifier_confidence is None:
 
         return (
@@ -424,19 +630,13 @@ def make_decision(
             "The classifier did not provide a confidence score."
         )
 
-    # --------------------------------------------------------
     # Best historical similarity
-    # --------------------------------------------------------
-
     best_similarity = max(
         item["similarity"]
         for item in evidence
     )
 
-    # --------------------------------------------------------
     # Very low classifier confidence
-    # --------------------------------------------------------
-
     if classifier_confidence < 0.50:
 
         return (
@@ -444,10 +644,7 @@ def make_decision(
             f"Intent confidence is too low ({classifier_confidence:.2f})."
         )
 
-    # --------------------------------------------------------
     # Weak historical evidence
-    # --------------------------------------------------------
-
     if best_similarity < 0.20:
 
         return (
@@ -455,10 +652,7 @@ def make_decision(
             f"Historical evidence is weak (best similarity: {best_similarity:.2f})."
         )
 
-    # --------------------------------------------------------
     # Moderate confidence requires stronger evidence
-    # --------------------------------------------------------
-
     if classifier_confidence < 0.65:
 
         if best_similarity < 0.35:
@@ -468,10 +662,7 @@ def make_decision(
                 "Intent confidence is moderate and the strongest historical case is not similar enough."
             )
 
-    # --------------------------------------------------------
-    # Sensitive / higher-risk intents
-    # --------------------------------------------------------
-
+    # Sensitive intent
     if intent == "ACCOUNT_ACCESS_SECURITY":
 
         if classifier_confidence < 0.80:
@@ -480,11 +671,18 @@ def make_decision(
                 "ESCALATE",
                 "Account-security issues require higher classification confidence before automatic handling."
             )
-
     # --------------------------------------------------------
+    # Product / missing-item cases
+    # --------------------------------------------------------
+
+    if intent == "PRODUCT_SELLER_ISSUE":
+
+        return (
+            "ESCALATE",
+            "Product or missing-item issues may require order-level review by a support representative."
+        )
+    
     # Support escalation
-    # --------------------------------------------------------
-
     if intent == "SUPPORT_ESCALATION":
 
         return (
@@ -492,10 +690,7 @@ def make_decision(
             "The customer is already reporting unsuccessful support interactions, so human review is appropriate."
         )
 
-    # --------------------------------------------------------
     # Strong case
-    # --------------------------------------------------------
-
     return (
         "AUTO-HANDLE",
         (
@@ -505,6 +700,11 @@ def make_decision(
         )
     )
 
+
+# ============================================================
+# DRAFT RESPONSE
+# ============================================================
+
 def draft_response(
     message,
     intent,
@@ -512,141 +712,291 @@ def draft_response(
     decision,
 ):
     """
-    Create a grounded response using historical support behavior.
+    Create a concise support response using the predicted intent
+    and the customer's actual message.
 
-    This version intentionally does NOT call an external LLM.
-    It uses simple templates so the project remains reproducible
-    and inexpensive.
+    The response avoids inventing order-specific facts.
     """
+
+    text = clean_text(message)
+
+    # --------------------------------------------------------
+    # Detect specific scenarios from actual customer message
+    # --------------------------------------------------------
+
+    delivered_not_received = (
+        any(
+            phrase in text
+            for phrase in [
+                "says it was delivered",
+                "says it has been delivered",
+                "marked as delivered",
+                "shows as delivered",
+                "states it has been delivered",
+                "delivered but",
+                "delivered and i haven't",
+                "delivered and i have not",
+            ]
+        )
+        and any(
+            phrase in text
+            for phrase in [
+                "never received",
+                "haven't received",
+                "have not received",
+                "not received",
+                "didn't receive",
+                "did not receive",
+            ]
+        )
+    )
+
+    missing_item = any(
+        phrase in text
+        for phrase in [
+            "item missing",
+            "missing item",
+            "item is missing",
+            "missing from the box",
+            "missing in the box",
+            "something missing",
+            "part missing",
+        ]
+    )
+
+    # --------------------------------------------------------
+    # ESCALATE
+    # --------------------------------------------------------
 
     if decision == "ESCALATE":
 
+        if delivered_not_received:
+
+            return (
+                "I'm sorry that your package shows as delivered "
+                "but you have not received it. Please check the "
+                "delivery details and the location where the carrier "
+                "may have left it. If it still cannot be found, "
+                "a support representative should investigate the delivery."
+            )
+
+        if missing_item:
+
+            return (
+                "I'm sorry that an item is missing from your delivery. "
+                "Please check the order and package details. A support "
+                "representative should review the order and help resolve "
+                "the missing-item issue."
+            )
+
+        if intent == "DELIVERY_DELAY":
+
+            return (
+                "Sorry that your delivery is delayed. Please check the "
+                "latest tracking information and the promised delivery "
+                "date. Since the delivery is overdue, a support "
+                "representative should review the order and available options."
+            )
+
+        if intent == "DELIVERY_PROOF_FAILURE":
+
+            return (
+                "I'm sorry that there is a problem with your delivery. "
+                "Please check the delivery details and carrier information. "
+                "A support representative should investigate the delivery "
+                "and help with the next step."
+            )
+
+        if intent == "RETURN_REFUND_REPLACEMENT":
+
+            return (
+                "Sorry about the trouble with your return or refund. "
+                "Please check the current order and refund or replacement "
+                "details. A support representative should review the case "
+                "and help with the next step."
+            )
+
+        if intent == "PAYMENT_BILLING_GIFTCARD":
+
+            return (
+                "Sorry about the payment or billing issue. Please check "
+                "the transaction and payment details. A support "
+                "representative should review the charge and help resolve "
+                "the issue."
+            )
+
+        if intent == "ACCOUNT_ACCESS_SECURITY":
+
+            return (
+                "I'm sorry you're having trouble with your account. "
+                "For security reasons, please use the official account "
+                "recovery or security process. A support representative "
+                "should review the case if access cannot be restored "
+                "or you suspect unauthorized activity."
+            )
+
+        if intent == "PRIME_MEMBERSHIP":
+
+            return (
+                "Sorry about the trouble with your Prime membership "
+                "or benefits. Please check your membership details. "
+                "A support representative should review the case and "
+                "help with the appropriate next step."
+            )
+
+        if intent == "DIGITAL_TECHNICAL":
+
+            return (
+                "Sorry you're having trouble with the digital service. "
+                "Please check the device or application settings and "
+                "try the relevant troubleshooting steps. If the issue "
+                "continues, a support representative should investigate it."
+            )
+
+        if intent == "PRODUCT_SELLER_ISSUE":
+
+            return (
+                "Sorry about the problem with the product or seller. "
+                "Please check the order and product details. A support "
+                "representative should review the case and help with "
+                "the appropriate resolution."
+            )
+
+        if intent == "ORDER_MANAGEMENT":
+
+            return (
+                "Sorry about the order issue. Please check the current "
+                "order details and available order-management options. "
+                "A support representative should review the order "
+                "and help with the appropriate next step."
+            )
+
+        if intent == "SUPPORT_ESCALATION":
+
+            return (
+                "I'm sorry you've had trouble getting this resolved. "
+                "Since previous support interactions have not resolved "
+                "the issue, a support representative should review the "
+                "case and provide the appropriate next step."
+            )
+
         return (
-            "Thanks for reaching out. "
-            "I’m sorry we couldn’t confidently determine the issue "
-            "from the information provided. "
-            "A support representative should review this and assist further."
+            "Thanks for reaching out. There isn't enough information "
+            "in the message to confidently determine the issue. "
+            "A support representative should review the case and assist."
         )
 
     # --------------------------------------------------------
-    # Get the strongest historical support reply.
+    # AUTO-HANDLE
     # --------------------------------------------------------
 
-    best_reply = ""
+    if delivered_not_received:
 
-    if evidence:
+        return (
+            "Sorry about that. If your package is showing as delivered "
+            "but you haven't received it, please check the delivery "
+            "details and carrier information first. If it still cannot "
+            "be located, support can investigate the delivery further."
+        )
 
-        replies = evidence[0][
-            "support_replies"
-        ]
+    if missing_item:
 
-        if replies:
-            best_reply = replies[0]
-
-    # --------------------------------------------------------
-    # Intent-specific grounded templates.
-    # --------------------------------------------------------
+        return (
+            "Sorry about the missing item. Please check the order and "
+            "package details and the items listed in your order. If the "
+            "item is still missing, support can review the order and "
+            "help with the appropriate resolution."
+        )
 
     if intent == "DELIVERY_PROOF_FAILURE":
 
-        response = (
-            "Sorry about that. If your package is showing as delivered "
-            "but you haven't received it, please check the delivery "
-            "details and carrier information first. "
-            "If it still cannot be located, support can investigate "
-            "the delivery further."
+        return (
+            "Sorry about the delivery issue. Please check the delivery "
+            "details and carrier information first. If the package or "
+            "item still cannot be located, support can investigate further."
         )
 
-    elif intent == "DELIVERY_DELAY":
+    if intent == "DELIVERY_DELAY":
 
-        response = (
+        return (
             "Sorry that your delivery is taking longer than expected. "
             "Please check the latest tracking information for the order. "
             "If the promised delivery date has passed, support can "
             "review the delivery status and available options."
         )
 
-    elif intent == "RETURN_REFUND_REPLACEMENT":
+    if intent == "RETURN_REFUND_REPLACEMENT":
 
-        response = (
-            "Sorry about the trouble with your order. "
-            "Please check the order's return or refund options. "
-            "If the refund or replacement is already in progress, "
-            "support can review its current status."
+        return (
+            "Sorry about the trouble with your order. Please check the "
+            "order's return or refund options. If the refund or replacement "
+            "is already in progress, support can review its current status."
         )
 
-    elif intent == "PAYMENT_BILLING_GIFTCARD":
+    if intent == "PAYMENT_BILLING_GIFTCARD":
 
-        response = (
-            "Sorry about the payment issue. "
-            "Please check the payment method and the transaction "
-            "details associated with the order. "
-            "If the charge still looks incorrect, support can "
-            "review the transaction."
+        return (
+            "Sorry about the payment issue. Please check the payment "
+            "method and transaction details associated with the order. "
+            "If the charge still looks incorrect, support can review "
+            "the transaction."
         )
 
-    elif intent == "ACCOUNT_ACCESS_SECURITY":
+    if intent == "ACCOUNT_ACCESS_SECURITY":
 
-        response = (
+        return (
             "For account access or security issues, please use the "
-            "official account recovery or security process. "
-            "If you still cannot access the account or believe it "
-            "has been compromised, support should review it."
+            "official account recovery or security process. If you still "
+            "cannot access the account or believe it has been compromised, "
+            "support should review it."
         )
 
-    elif intent == "PRIME_MEMBERSHIP":
+    if intent == "PRIME_MEMBERSHIP":
 
-        response = (
-            "Sorry about the trouble with your Prime service. "
-            "Please check your Prime membership and the benefit "
-            "associated with the order. "
-            "If the expected Prime benefit was not applied, "
-            "support can review the membership and order details."
+        return (
+            "Sorry about the trouble with your Prime service. Please "
+            "check your Prime membership and the benefit associated "
+            "with the order. If the expected Prime benefit was not "
+            "applied, support can review the membership and order details."
         )
 
-    elif intent == "DIGITAL_TECHNICAL":
+    if intent == "DIGITAL_TECHNICAL":
 
-        response = (
+        return (
             "Sorry you're having trouble with the digital service. "
-            "Please check the device or application settings and "
-            "try the relevant troubleshooting steps. "
-            "If the problem continues, support can investigate further."
+            "Please check the device or application settings and try "
+            "the relevant troubleshooting steps. If the problem continues, "
+            "support can investigate further."
         )
 
-    elif intent == "PRODUCT_SELLER_ISSUE":
+    if intent == "PRODUCT_SELLER_ISSUE":
 
-        response = (
-            "Sorry about the issue with the product. "
-            "Please check the order and product details to review "
-            "the available support, return, or replacement options."
+        return (
+            "Sorry about the issue with the product. Please check the "
+            "order and product details to review the available support, "
+            "return, or replacement options."
         )
 
-    elif intent == "ORDER_MANAGEMENT":
+    if intent == "ORDER_MANAGEMENT":
 
-        response = (
-            "I can help with the order issue. "
-            "Please check the order details for the available "
-            "cancellation, address, or order-management options."
+        return (
+            "I can help with the order issue. Please check the order "
+            "details for the available cancellation, address, or "
+            "order-management options."
         )
 
-    elif intent == "SUPPORT_ESCALATION":
+    if intent == "SUPPORT_ESCALATION":
 
-        response = (
+        return (
             "I'm sorry you've had trouble getting this resolved. "
-            "Based on similar support cases, this should be reviewed "
-            "by a support representative so they can investigate "
-            "the issue and provide the appropriate next step."
+            "A support representative should review the case and "
+            "provide the appropriate next step."
         )
 
-    else:
-
-        response = (
-            "Thanks for reaching out. "
-            "A support representative should review the details "
-            "and help with the issue."
-        )
-
-    return response
+    return (
+        "Thanks for reaching out. A support representative should "
+        "review the details and help with the issue."
+    )
 
 
 # ============================================================

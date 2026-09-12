@@ -2,8 +2,8 @@ from pathlib import Path
 import pandas as pd
 
 
-INPUT = Path("data/evaluation/golden_set.csv")
-OUTPUT = Path("data/evaluation/golden_set.csv")
+INPUT = Path("data/evaluation/golden_set_clean.csv")
+OUTPUT = Path("data/evaluation/golden_set_clean.csv")
 
 
 # Human-reviewed labels for rows 1-200.
